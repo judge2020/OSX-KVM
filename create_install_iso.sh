@@ -422,7 +422,7 @@ if [[ "$cr_method" == "method1" ]] || [[ "$cr_method" == "method2" ]]; then
 	elif [[ "$cr_method" == "method2" ]]; then
 		stage_start_nl "Creating installation image from BaseSystem.dmg"
 		OSX_inst_img_dmg_tmp="$tmp_dir/OS_X_Install.dmg" || exit_with_error
-		hdiutil create  "${OSX_inst_img_dmg_tmp}" -srcdevice "$OSX_inst_base_dmg" -layout ISOCD || exit_with_error "Can't create writable image"
+		hdiutil create -force "${OSX_inst_img_dmg_tmp}" -srcdevice "$OSX_inst_base_dmg" -layout ISOCD || exit_with_error "Can't create writable image"
 		stage_end_ok "Creating succeed"
 
 		stage_start_nl "Converting installation image to writeable format"
